@@ -88,7 +88,7 @@ table th.sort-desc::before {
     border-radius: 12px;
     width: 50px;
 }
-input {
+input, select {
   padding: 10px;
   margin-bottom: 20px;
   font-size: 18px;

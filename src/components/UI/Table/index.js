@@ -4,7 +4,6 @@ import { useTable, useFilters, useSortBy } from "react-table";
 export default function Table({ columns, data, hiddenColumns }) {
   const [filterInput, setFilterInput] = useState("");
   
-  // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
     getTableBodyProps,
@@ -24,19 +23,41 @@ export default function Table({ columns, data, hiddenColumns }) {
     useSortBy
   );
 
-  const handleFilterChange = e => {
+  const handleFilterChangeName = e => {
     const value = e.target.value || undefined;
-    setFilter("show.name", value);
+    setFilter("login", value);
     setFilterInput(value);
   };
 
-  // Render the UI for your table
+  const handleFilterChangeID = e => {
+    const value = e.target.value || undefined;
+    setFilter("id", value);
+    setFilterInput(value);
+  };
+
+  const handleFilterChangeRepos = e => {
+    const value = e.target.value || undefined;
+    setFilter("reposName", value);
+    setFilterInput(value);
+  };
+  
   return (
     <>
       <input
         value={filterInput}
-        onChange={handleFilterChange}
+        onChange={handleFilterChangeName}
         placeholder={"Search name"}
+      />
+      <input
+        value={filterInput}
+        onChange={handleFilterChangeID}
+        placeholder={"Search id"}
+      />
+      <input
+        value={filterInput}
+        onChange={handleFilterChangeRepos}
+        placeholder={"Search id"}
+        style={{display: {hiddenColumns} ? 'block' : 'none' }}
       />
       <table {...getTableProps()}>
         <thead>

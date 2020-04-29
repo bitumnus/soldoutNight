@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import axios from "axios";
 import qs from 'querystring';
+import {NavLink} from 'react-router-dom';
 
 import Table from "../UI/Table";
 
@@ -11,6 +12,16 @@ const Avatars = ({ value }) => {
     </>
   );
 };
+
+const Login = ({ value }) => {
+    return (
+      <>
+        <NavLink to={`/user/${value}`}>
+            {value}
+        </NavLink>
+      </>
+    );
+  };
 
 function SearchResult(props) {
     
@@ -23,6 +34,7 @@ function SearchResult(props) {
       {
         Header: "Login name",
         accessor: "login",
+        Cell: ({ cell: { value } }) => <Login value={value} />
       },
       {
         Header: "Avatar",
@@ -42,7 +54,7 @@ function SearchResult(props) {
     const searcValue = parsedSearch.value;
     
   const [data, setData] = useState([]);
-  let [loginDetail, setLoginDetail] = useState([]);
+//   let [loginDetail, setLoginDetail] = useState([]);
   const [type, setType] = useState(searchType);
   const [value, setValue] = useState(searcValue);
 

@@ -1,0 +1,16 @@
+:local(.spiner) {
+    left: '50%';
+    top: '50%';
+    position: 'absolute';
+    transform: 'translate(-50%, -50%)';
+}
+
+:local(.image) {
+    position: 'relative';
+}
+
+.u-imgResponsive {
+    display: block;
+    min-width: 100%;
+    height: auto;
+  }
